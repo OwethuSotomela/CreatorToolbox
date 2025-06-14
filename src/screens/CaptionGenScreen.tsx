@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
 import { generateCaption } from '../services/captionService';
+import theme from '../theme'; 
 
 const CaptionGenScreen = () => {
   const [topic, setTopic] = useState('');
@@ -35,11 +36,32 @@ const CaptionGenScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { padding: 20 },
-  title: { fontSize: 20, fontWeight: 'bold', marginBottom: 10 },
-  label: { marginTop: 15, fontWeight: '600' },
-  input: { borderColor: '#aaa', borderWidth: 1, borderRadius: 6, padding: 10, marginTop: 5 },
-  result: { marginTop: 20 }
+  container: {
+    padding: theme.spacing.medium,
+    backgroundColor: theme.colors.background,
+    flexGrow: 1
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: theme.spacing.medium,
+    color: theme.colors.primary
+  },
+  label: {
+    marginTop: theme.spacing.medium,
+    fontWeight: '600',
+    color: theme.colors.text
+  },
+  input: {
+    borderColor: '#aaa', 
+    borderWidth: 1,
+    borderRadius: 6,
+    padding: theme.spacing.small,
+    marginTop: theme.spacing.small
+  },
+  result: {
+    marginTop: theme.spacing.large
+  }
 });
 
 export default CaptionGenScreen;
