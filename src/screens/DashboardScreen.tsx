@@ -1,21 +1,28 @@
 import React from 'react';
-import { View, StyleSheet, Button, Text } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import theme from '../theme';
-import Title from '../components/Title';
 
 const DashboardScreen = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <Title>Creator Toolbox</Title>
+      <Text style={styles.title}>👋 Welcome to Creator Toolbox</Text>
+      <Text style={styles.subtitle}>Your content, your hustle. All in one place.</Text>
 
-      <Text style={styles.sub}>What would you like to do today?</Text>
-
-      <Button title="🎯 Generate Captions" onPress={() => navigation.navigate('CaptionGen')} />
-      <Button title="🗓️ Plan Content" onPress={() => navigation.navigate('ContentPlanner')} />
-      <Button title="📈 Hashtag Research" onPress={() => navigation.navigate('Hashtag')} />
+      <View style={styles.buttonContainer}>
+        <Button title="🧠 AI Captions" onPress={() => navigation.navigate('CaptionGen')} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="📅 Planner" onPress={() => navigation.navigate('Planner')} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="🔍 Hashtag Finder" onPress={() => navigation.navigate('Hashtag')} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="📝 Content Planner" onPress={() => navigation.navigate('ContentPlanner')} />
+      </View>
     </View>
   );
 };
@@ -24,14 +31,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-    padding: theme.spacing.medium,
-    justifyContent: 'center',
-    gap: theme.spacing.medium
+    padding: theme.spacing.large,
+    justifyContent: 'center'
   },
-  sub: {
-    marginVertical: theme.spacing.small,
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: theme.colors.primary,
+    textAlign: 'center',
+    marginBottom: theme.spacing.medium
+  },
+  subtitle: {
     fontSize: 16,
-    color: theme.colors.text
+    color: theme.colors.text,
+    textAlign: 'center',
+    marginBottom: theme.spacing.large
+  },
+  buttonContainer: {
+    marginVertical: theme.spacing.small
   }
 });
 
